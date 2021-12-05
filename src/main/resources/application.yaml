@@ -13,4 +13,4 @@ spring:
     enabled: false
 
 server:
-  port: 8999
+  port: 8090
