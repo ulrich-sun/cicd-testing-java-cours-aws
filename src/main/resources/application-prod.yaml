@@ -12,4 +12,4 @@ spring:
     change-log: classpath:/db/changelog/db.changelog-prod.yaml
 
 server:
-  port: 9001
+  port: 9999
