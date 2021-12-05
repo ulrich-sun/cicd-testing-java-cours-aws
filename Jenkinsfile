@@ -106,17 +106,16 @@ String getEnvName(String branchName) {
 
 String getHTTPPort(String branchName) {
     if (branchName == 'main') {
-        return '9001'
+        return '9999'
 
     } else if (branchName.startsWith("release-") || branchName.startsWith("hotfix-") || branchName == 'ready') {
-        return '9002'
+        return '8888'
     }
-    return '9003'
+    return '8090'
 }
 
 String getTag(String buildNumber, String branchName) {
     if (branchName == 'main') {
         return buildNumber + '-unstable'
     }
-    return buildNumber + '-stable'
 }
