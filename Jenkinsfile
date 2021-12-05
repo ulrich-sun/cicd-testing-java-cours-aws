@@ -116,6 +116,7 @@ String getHTTPPort(String branchName) {
 
 String getTag(String buildNumber, String branchName) {
     if (branchName == 'main') {
-        return buildNumber + '-unstable'
+        return buildNumber + '-stable'
     }
+    return buildNumber + '-unstable'
 }
