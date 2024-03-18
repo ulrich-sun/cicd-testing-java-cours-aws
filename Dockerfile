@@ -10,8 +10,9 @@ FROM adoptopenjdk/openjdk11:alpine-jre as final
 
 COPY --from=build /app/target/*.jar /app/calculator.jar
 
-COPY entrypoint.sh entrypoint.sh
+# COPY entrypoint.sh entrypoint.sh
 
-RUN chmod 755 entrypoint.sh
+# RUN chmod 755 entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+# ENTRYPOINT ["./entrypoint.sh"]
+CMD ["java", "-jar", "/app/calculator.jar"]
