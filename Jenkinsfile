@@ -84,7 +84,7 @@ def pushToImage(containerName, tag, dockerUser, dockerPassword) {
     echo "Image push complete"
 }
 
-def runApp(containerName, tag, dockerHubUser, httpPort, envName) {
+def runApp(containerName, tag, dockerUser, httpPort, envName) {
     sh "docker pull $dockerUser/$containerName"
     sh "docker run --rm --env SPRING_ACTIVE_PROFILES=$envName -d -p $httpPort:$httpPort --name $containerName $dockerUser/$containerName:$tag"
     echo "Application started on port: ${httpPort} (http)"
