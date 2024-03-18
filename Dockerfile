@@ -1,10 +1,14 @@
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM maven:3.8.3-jdk-11-slim as build
 
-ARG JAR_FILE=target/calculator.jar
+COPY . /app
+WORKDIR /app
 
-WORKDIR /opt/app
+RUN mvn clean package -DskipTests
 
-COPY ${JAR_FILE} calculator.jar
+
+FROM adoptopenjdk/openjdk11:alpine-jre as final
+
+COPY --from=build /app/target/*.jar /app/calculator.jar
 
 COPY entrypoint.sh entrypoint.sh
 
