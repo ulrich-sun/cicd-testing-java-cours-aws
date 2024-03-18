@@ -18,8 +18,9 @@ node {
         }
 
         stage('Build with test') {
-
+            docker.image('maven:3.8.3-jdk-11-slim').inside {
             sh "mvn clean install"
+            }
         }
 
         stage('Sonarqube Analysis') {
